@@ -15,7 +15,7 @@
   }
   body{font-family:'Space Grotesk',sans-serif;background:var(--fmf-dark);color:var(--text-main);
     min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
-    overflow:hidden;position:relative;}
+    overflow-x:hidden;overflow-y:auto;position:relative;padding:32px 0;}
   body::before{content:'';position:fixed;inset:0;
     background-image:linear-gradient(rgba(29,184,138,0.04) 1px,transparent 1px),
     linear-gradient(90deg,rgba(29,184,138,0.04) 1px,transparent 1px);
@@ -27,20 +27,20 @@
   .blob-3{width:300px;height:300px;background:var(--glow-green);bottom:100px;left:200px;animation:float 8s ease-in-out infinite;}
   @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-30px)}}
   .portal-header{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;
-    gap:8px;margin-bottom:48px;text-align:center;}
+    gap:8px;margin-bottom:28px;text-align:center;}
   .logo-wrap{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
-    border-radius:24px;padding:24px 40px;backdrop-filter:blur(12px);
+    border-radius:20px;padding:16px 28px;backdrop-filter:blur(12px);
     box-shadow:0 8px 40px rgba(0,0,0,0.4),0 0 0 1px rgba(29,184,138,0.1);margin-bottom:20px;
     transition:box-shadow 0.3s;}
   .logo-wrap:hover{box-shadow:0 8px 60px rgba(0,0,0,0.5),0 0 0 1px rgba(29,184,138,0.3),0 0 40px var(--glow-green);}
-  .logo-wrap img{height:90px;display:block;}
+  .logo-wrap img{height:60px;display:block;}
   .portal-title{font-size:12px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--fmf-green);margin-bottom:4px;}
   .portal-sub{font-size:26px;font-weight:700;color:var(--text-main);letter-spacing:-0.5px;}
   .portal-tagline{font-size:14px;color:var(--text-sub);font-weight:400;margin-top:4px;}
   .systems-grid{position:relative;z-index:10;display:grid;grid-template-columns:repeat(3,1fr);
     gap:24px;width:100%;max-width:960px;padding:0 24px;}
   .sys-card{background:var(--fmf-card);border:1px solid var(--fmf-border);border-radius:20px;
-    padding:40px 28px;display:flex;flex-direction:column;align-items:center;gap:18px;
+    padding:26px 22px;display:flex;flex-direction:column;align-items:center;gap:13px;
     cursor:pointer;text-decoration:none;color:inherit;position:relative;overflow:hidden;
     transition:transform 0.25s,box-shadow 0.25s,border-color 0.25s;backdrop-filter:blur(8px);}
   .sys-card::before{content:'';position:absolute;inset:0;
