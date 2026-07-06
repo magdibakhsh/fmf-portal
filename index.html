@@ -37,8 +37,8 @@
   .portal-title{font-size:12px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--fmf-green);margin-bottom:4px;}
   .portal-sub{font-size:26px;font-weight:700;color:var(--text-main);letter-spacing:-0.5px;}
   .portal-tagline{font-size:14px;color:var(--text-sub);font-weight:400;margin-top:4px;}
-  .systems-grid{position:relative;z-index:10;display:grid;grid-template-columns:repeat(3,1fr);
-    gap:24px;width:100%;max-width:960px;padding:0 24px;}
+  .systems-grid{position:relative;z-index:10;display:grid;grid-template-columns:repeat(4,1fr);
+    gap:20px;width:100%;max-width:1240px;padding:0 24px;}
   .sys-card{background:var(--fmf-card);border:1px solid var(--fmf-border);border-radius:20px;
     padding:26px 22px;display:flex;flex-direction:column;align-items:center;gap:13px;
     cursor:pointer;text-decoration:none;color:inherit;position:relative;overflow:hidden;
@@ -65,6 +65,7 @@
   .card-p{--ca:#1DB88A;--cg:rgba(29,184,138,0.12);}
   .card-w{--ca:#2E7DD4;--cg:rgba(46,125,212,0.12);}
   .card-f{--ca:#E07B30;--cg:rgba(224,123,48,0.12);}
+  .card-g{--ca:#F2B84B;--cg:rgba(242,184,75,0.12);}
   .portal-footer{position:relative;z-index:10;margin-top:48px;font-size:12px;
     color:var(--text-sub);letter-spacing:0.5px;text-align:center;}
   .portal-footer span{color:var(--fmf-green);}
@@ -74,7 +75,7 @@
   .dot.blue{background:#2E7DD4;animation-delay:0.5s;}
   .dot.amber{background:#E0A030;animation-delay:1s;}
   @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.8)}}
-  @media(max-width:768px){.systems-grid{grid-template-columns:1fr;max-width:400px;}.portal-sub{font-size:20px;}}
+  @media(max-width:1100px){.systems-grid{grid-template-columns:repeat(2,1fr);max-width:700px;}}@media(max-width:640px){.systems-grid{grid-template-columns:1fr;max-width:400px;}.portal-sub{font-size:20px;}}
 </style>
 </head>
 <body>
@@ -111,6 +112,13 @@
     <div class="card-icon">&#128667;</div>
     <div class="card-label">Security &amp; Fleet</div>
     <div class="card-desc">Vehicle management, driver records, movement logs, security incidents &amp; guard schedules</div>
+    <span class="card-btn">Open System &#8594;</span>
+  </a>
+  <a class="sys-card card-g" href="generator.html">
+    <div class="accent-bar"></div>
+    <div class="card-icon">&#9889;</div>
+    <div class="card-label">Generator &amp; Maintenance</div>
+    <div class="card-desc">Diesel consumption register, preventive maintenance tracker &amp; KPI-10 SLA compliance</div>
     <span class="card-btn">Open System &#8594;</span>
   </a>
 </main>
