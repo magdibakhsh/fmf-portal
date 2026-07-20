@@ -94,7 +94,7 @@
 </header>
 
 <a href="scop.html" style="position:relative;z-index:10;display:inline-flex;align-items:center;gap:10px;margin:0 0 26px;padding:12px 26px;border-radius:50px;background:linear-gradient(90deg,#1DB88A,#2E7DD4);color:#fff;font-weight:700;font-size:14px;text-decoration:none;box-shadow:0 8px 30px rgba(29,184,138,.25);">&#128640; Open SCOP Workspace &mdash; your daily operations home <span style="font-size:10px;background:rgba(255,255,255,.25);padding:2px 8px;border-radius:10px;">NEW</span></a>
-<main class="systems-grid">
+<div style="display:flex;justify-content:center;align-items:center;gap:14px;margin:0 0 24px;flex-wrap:wrap;position:relative;z-index:10"><input type="file" id="gall" multiple accept=".xlsx,.xls,.csv" style="display:none" onchange="fmfLoadAll(this.files);this.value=''"><button onclick="document.getElementById('gall').click()" style="display:inline-flex;align-items:center;gap:10px;padding:12px 26px;border-radius:14px;border:1px solid rgba(29,184,138,.45);background:rgba(29,184,138,.12);color:#1DB88A;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer">&#8687; Load Data &mdash; all systems in one click</button><span id="gallst" style="font-size:12px;color:#8BAAC8;max-width:460px;text-align:left"></span></div><main class="systems-grid">
   <a class="sys-card card-p" href="procurement.html">
     <div class="accent-bar"></div>
     <div class="card-icon">&#128203;</div>
@@ -140,5 +140,5 @@
     <div class="status-dot"><span class="dot amber"></span> Security &amp; Fleet</div>
   </div>
 </footer>
-</body>
+<script>(function(){function st(m,ok){var e=document.getElementById("gallst");if(e){e.textContent=m;e.style.color=ok?"#1DB88A":"#EF4444";}}window.fmfLoadAll=function(files){if(!files||!files.length)return;var list=Array.prototype.slice.call(files);if(!window.indexedDB){st("This browser cannot store shared data - load files inside each system instead",false);return;}var rq=indexedDB.open("fmfShared",1);rq.onupgradeneeded=function(e){try{e.target.result.createObjectStore("files");}catch(e2){}};rq.onerror=function(){st("Could not open browser storage",false);};rq.onsuccess=function(e){var db=e.target.result;var done=0,fail=0;var next=function(i){if(i>=list.length){try{localStorage.setItem("fmfSharedTs",String(Date.now()));}catch(e3){}st(done+" file(s) saved - now open any system card below and the data loads by itself"+(fail?(" ("+fail+" failed)"):""),fail===0);return;}var fx=list[i];var r=new FileReader();r.onload=function(ev){try{var tx=db.transaction("files","readwrite");tx.objectStore("files").put({name:fx.name,ts:Date.now(),buf:ev.target.result},fx.name);tx.oncomplete=function(){done++;st("Saving "+done+" / "+list.length+" ...",true);next(i+1);};tx.onerror=function(){fail++;next(i+1);};}catch(err){fail++;next(i+1);}};r.onerror=function(){fail++;next(i+1);};r.readAsArrayBuffer(fx);};next(0);};};})();</script></body>
 </html>
